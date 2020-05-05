@@ -25,12 +25,12 @@ header {
 
 /* NAV CSS */
 
-li {
+.li_navheaderfooter {
     display: inline-block;
     margin: 40px;
 }
 
-ul {
+.ul_display {
     margin-top: -5px;
 }
 
@@ -43,12 +43,63 @@ ul {
 
 /* ARTICLES */
 
-.articles {
-    background: #e3e1de;
-    width: 300px;
+.articles_container {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.articles {
+    width: 500px;
+    background: #bddbde;
+    margin-right: -55px;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+
+.article_section {
+    padding: 35px;
+}
+
+#flexbox_chat {
+    display: flex;
+    flex-direction: column;
+}
+
+#flexbox_chien {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* SIDE BAR ARTCILES */
+
+.sidebar {
+    background-color: #e3e1de;
+    width: 15%;
+    padding: 20px;
+}
+
+.formsearch {}
+
+input {
+    padding: 8px 25px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+input[type=TEXT] {
+    width: 50%;
+}
+
+input[type=submit] {
+    position: relative;
+    left: -5px;
+    background: #bddbde;
+    color: white;
 }
 
 
