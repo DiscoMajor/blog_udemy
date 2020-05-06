@@ -11,7 +11,7 @@ body {
 /* HEADER */
 
 header {
-    background: #bddbde;
+    background: #9dcbd1;
     height: 140px;
 }
 
@@ -54,7 +54,7 @@ header {
 
 .articles {
     width: 500px;
-    background: #bddbde;
+    background: #9dcbd1;
     margin-right: -55px;
     margin-bottom: 15px;
     padding: 20px;
@@ -75,15 +75,35 @@ header {
 }
 
 
-/* SIDE BAR ARTCILES */
+/* SIDE BAR + COMM' ARTCILES */
 
 .sidebar {
-    background-color: #e3e1de;
+    background-color: #dae0e0;
     width: 15%;
     padding: 20px;
+    text-align: initial;
 }
 
-.formsearch {}
+.sidebar li {
+    list-style-type: none;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+    transition: color .3s ease;
+}
+
+.sidebar a:hover {
+    color: #9dcbd1;
+}
 
 input {
     padding: 8px 25px;
@@ -98,8 +118,17 @@ input[type=TEXT] {
 input[type=submit] {
     position: relative;
     left: -5px;
-    background: #bddbde;
+    background: #9dcbd1;
     color: white;
+}
+
+
+/* FOOTER */
+
+.footerdiv {
+    margin: 0;
+    padding: 0;
+    background-color: #9dcbd1;
 }
 
 
@@ -109,9 +138,11 @@ a {
     color: black;
 }
 
-h1 {
+#h1_header {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    margin-top: 35px;
+    margin-right: 450px;
+    text-align: center;
+    padding: 10px;
 }

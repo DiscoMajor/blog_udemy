@@ -30,7 +30,7 @@
 
     </header>
 
-    <h1>Derniers arrivants et disponibles à l'adoption</h1>
+    <h1 id="h1_header">Derniers arrivants et disponibles à l'adoption</h1>
 
 
     <div class="articles_container ">
@@ -83,38 +83,62 @@
 
 
         <section class="sidebar">
-            <form class="formsearch">
+            <form>
                 <input type="text" placeholder="Rechercher...">
                 <input type="submit" value="OK">
             </form>
 
             <h4>Catégories</h4>
             <ul>
-                <li>Chiens</li>
-                <li>Chats</li>
-                <li>A propos</li>
+                <li><a href="/">Chats</a></li>
+                <li><a href="/">Chiens</a></li>
+                <li><a href="/">A la une</a></li>
+                <li><a href="/">Contactez nous</a></li>
+
             </ul>
 
-            <h4>Commentaires récents</h4>
+            <h4>Commentaires récents : </h4>
             <ul>
+                <li>
+                    <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, asperiores... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem necessitatibus explicabo quas? </i></br>
+                        <a href="#">- Titre article</a></p>
+                </li>
 
+                <li>
+                    <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, asperiores...</i></br>
+                        <a href="#">- Titre article</a></p>
+                </li>
+
+                <li>
+                    <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, asperiores... Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quo.</i></br>
+                        <a href="#">- Titre article</a></p>
+                </li>
+
+                <li>
+                    <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, asperiores...</i></br>
+                        <a href="#">- Titre article</a></p>
+                </li>
             </ul>
         </section>
 
     </div>
 
-
-
-
-
-
-
-    <!-- Le reste du contenu -->
-
     <!--FOOTER -->
 
     <footer>
 
+        <div class="footerdiv">
+
+            <nav>
+                <ul class="ul_display">
+                    <li class="li_navheaderfooter"><img src="img/heart.png" alt=""><a href="/" class="a_nav">Acceuil</a></li>
+                    <li class="li_navheaderfooter"><img src="img/cat.png" alt=""><a href="" class="a_nav">Chats</a></li>
+                    <li class="li_navheaderfooter"><img src="img/dog.png" alt=""><a href="" class="a_nav">Chiens</a></li>
+                    <li class="li_navheaderfooter"><img src="img/question.png" alt=""><a href="" class="a_nav">A propos</a></li>
+                </ul>
+            </nav>
+
+        </div>
     </footer>
 
 </body>
