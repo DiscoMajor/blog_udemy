@@ -25,13 +25,9 @@ header {
 
 /* NAV CSS */
 
-.li_navheaderfooter {
+.li_navheader {
     display: inline-block;
     margin: 40px;
-}
-
-.ul_display {
-    margin-top: -5px;
 }
 
 .a_nav {
@@ -50,10 +46,12 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-left: 100px;
 }
 
 .articles {
-    width: 500px;
+    max-width: 500px;
+    max-height: 450px;
     background: #9dcbd1;
     margin-right: -55px;
     margin-bottom: 15px;
@@ -61,7 +59,7 @@ header {
 }
 
 .article_section {
-    padding: 35px;
+    padding: 30px;
 }
 
 #flexbox_chat {
@@ -75,13 +73,15 @@ header {
 }
 
 
-/* SIDE BAR + COMM' ARTCILES */
+/* SIDE BAR + COMM' ARTCILES INDEX */
 
 .sidebar {
     background-color: #dae0e0;
     width: 15%;
     padding: 20px;
-    text-align: initial;
+    text-align: left;
+    max-height: 922px;
+    margin-left: 150px;
 }
 
 .sidebar li {
@@ -105,30 +105,120 @@ header {
     color: #9dcbd1;
 }
 
-input {
-    padding: 8px 25px;
-    background-color: white;
-    border: 1px solid black;
+
+/* PAGE ARTICLES */
+
+.mon_container_article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 65px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    text-align: justify;
 }
 
-input[type=TEXT] {
+.article_size {
+    max-width: 1090px;
+    max-height: auto;
+    padding: 15px;
+    background: #9dcbd1;
+}
+
+.article_size img {
+    padding: 10px;
+    background: white;
+}
+
+
+/* BAR RECHERCHE */
+
+input,
+textarea {
+    padding: 8px 25px;
+    background-color: white;
+    border: 1px solid #dae0e0;
+    font-family: roboto, sans-serif;
+}
+
+.sidebar input[type=TEXT] {
     width: 50%;
 }
 
 input[type=submit] {
-    position: relative;
-    left: -5px;
     background: #9dcbd1;
     color: white;
+}
+
+.sidebar input[type=submit] {
+    position: relative;
+    left: -5px;
+}
+
+
+/* PADDING IMAGES */
+
+.articles img {
+    padding: 10px;
+    background: white;
+}
+
+
+/* SECTION COMMENTAIRES */
+
+.commentaires textarea {
+    margin: 5px 0;
+}
+
+.commentaires {
+    max-width: 500px;
+    max-height: 450px;
+    background: #9dcbd1;
+    margin-right: -55px;
+    margin-bottom: 15px;
+}
+
+.comments {
+    margin-top: 50px;
+    text-align: left;
+}
+
+.comments p {
+    margin-bottom: 0;
+}
+
+.auteur {
+    font-style: italic;
+    font-weight: bold;
+    text-align: right;
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+    font-size: 0.9em;
 }
 
 
 /* FOOTER */
 
 .footerdiv {
-    margin: 0;
-    padding: 0;
     background-color: #9dcbd1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.footerdiv li {
+    display: inline-block;
+    margin: 15px;
+}
+
+.footerdiv .ul_display {
+    margin 0;
+}
+
+img {
+    vertical-align: middle;
 }
 
 
@@ -143,6 +233,21 @@ a {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     margin-right: 450px;
-    text-align: center;
     padding: 10px;
+}
+
+#h2_articles {
+    text-align: start;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    padding: 10px;
+    margin-left: 126px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+hr {
+    color: #dae0e0;
 }
