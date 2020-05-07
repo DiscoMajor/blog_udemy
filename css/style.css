@@ -198,6 +198,28 @@ input[type=submit] {
 }
 
 
+/* Espace connexion INPUT + VIsuel */
+
+.espace_connexion input {
+    padding: 8px 25px;
+    background-color: white;
+    border: 1px solid #dae0e0;
+    font-family: roboto, sans-serif;
+    margin-top: 5px;
+}
+
+.espace_connexion input[type=submit] {
+    background: #9dcbd1;
+    color: white;
+}
+
+.visu_connexion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 /* FOOTER */
 
 .footerdiv {
@@ -250,4 +272,8 @@ a {
 
 hr {
     color: #dae0e0;
+}
+
+h1 {
+    font-family: roboto, sans-serif;
 }

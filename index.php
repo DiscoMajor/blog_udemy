@@ -18,7 +18,7 @@
 
 <h1 id="h1_header">Derniers arrivants et disponibles à l'adoption</h1>
 
-<div class="articles_container ">
+<div class="articles_container">
 
         <div id="flexbox_chat">
             <section class="articles">
