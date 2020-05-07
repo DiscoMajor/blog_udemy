@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['admin']) AND $_SESSION['admin']){
-    header('location: /admin.php');
+    header('Location: /admin.php');
 }
 
 $erreur='';
@@ -13,7 +13,7 @@ if (isset($_POST['connexion'])) {
 
             if (!empty($pseudo) AND !empty($password)) {
 
-                if(($pseudo == 'Disco' AND $password == '123') OR ($pseudo == 'admin' AND $password == 'azer')) {
+                if($pseudo == 'vico' AND $password == '123') {
                     $_SESSION['admin'] = true;
                     header('location: /admin.php');
                      } else {
