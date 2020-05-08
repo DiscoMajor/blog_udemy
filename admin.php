@@ -3,31 +3,31 @@ session_start();
 
 require_once 'php/config.php';
 
-if (!isset($_SESSION['admin']) OR !$_SESSION['admin']) {
-    header('Location: /');
+if(!isset($_SESSION['admin']) OR !$_SESSION['admin']) {
+	header('Location: /');
 }
 
-$message_categorie='';
+$message_categorie = '';
 if(isset($_POST['categorie'])) {
-    if (!empty($_POST=['nom']) AND !empty($_POST['slug'])){
-        $nom = htmlspecialchars ($_POST['nom']);
-        $slug = htmlspecialchars ($_POST['slug']);
+	if(!empty($_POST['nom']) AND !empty($_POST['slug'])) {
+		$nom = htmlspecialchars($_POST['nom']);
+		$slug = htmlspecialchars($_POST['slug']);
 
-        $ins = $bdd->PREPARE('INSERT INTO categories (categorie,categorie_url) VALUES (?, ?)');
-        $res = $ins->execute([$nom, $slug]);
+		$ins = $bdd->prepare('INSERT INTO categories (categorie, categorie_url) VALUES (?, ?)');
+		$res = $ins->execute([$nom, $slug]);
 
-        if($res) {
-            $message_categorie='Nouvelle catégorie ajoutée !';
-        } else {
-            $message_categorie='Une erreur est survenue durant l\'ajout de la catégorie';
-        }
+		if($res) {
+			$message_categorie = 'La nouvelle catégorie a bien été ajoutée !';
+		} else {
+			$message_categorie = 'Une erreur est survenue durant l\'ajout de la catégorie';
+		}
 
-    } else {
-        $message_categorie='Veuillez renseigner un nom de catégorie ainsi qu\'un slug';
-    }
+	} else {
+		$message_categorie = 'Veuillez renseigner un nom de catégorie ainsi qu\'un slug';
+	}
 }
-
 ?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -61,7 +61,7 @@ if(isset($_POST['categorie'])) {
 <form method="POST">
     <input type="text" name="nom" placeholder="Nom de la categorie" required>
     <input type="text" name="slug" size="30" placeholder="Slug de la catégorie (dans l'url)" required>
-    <input type="Submit" name="categorie" value="Créer la catégorie">
+    <input type="submit" name="categorie" value="Créer la catégorie">
 </form>
 
 <?php if($message_categorie) { echo '<p>' .$message_categorie. '<p>'; } ?>
