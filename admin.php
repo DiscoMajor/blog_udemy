@@ -26,6 +26,9 @@ if(isset($_POST['categorie'])) {
 		$message_categorie = 'Veuillez renseigner un nom de catégorie ainsi qu\'un slug';
 	}
 }
+
+$categories = $bdd->query('SELECT * FROM categories');
+
 ?>
 
 <!doctype html>
@@ -65,6 +68,19 @@ if(isset($_POST['categorie'])) {
 </form>
 
 <?php if($message_categorie) { echo '<p>' .$message_categorie. '<p>'; } ?>
+
+<h3>Nouvelle catégorie</h3>
+
+<form method="POST">
+	<select name="categorie_artcicle">
+		<?php while($o = $categories->fetch(PDO::FETCH_ASSOC)) { ?>
+		<option><?= $o['categorie'] ?></option>
+			<?php } ?>
+	</select>
+</form>
+
+<br><br>
+
 
 </section>
 
