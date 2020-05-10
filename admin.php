@@ -29,6 +29,65 @@ if(isset($_POST['categorie'])) {
 
 $categories = $bdd->query('SELECT * FROM categories');
 
+$message_article='';
+$taille_maximum=2;
+if(isset($_POST['article'])) {
+	if(isset($_POST['categorie_article'], 
+		$_POST['titre'], 
+		$_POST['contenu'], 
+		$_FILES['miniature']['tmp_name'])) {
+
+		$categorie = htmlspecialchars ($_POST['categorie_article']);
+		$titre = htmlspecialchars ($_POST['titre']);
+		$contenu = htmlspecialchars ($_POST['contenu']);
+		$miniature = $_FILES['miniature'];
+
+		if(!empty($categorie) AND !empty($titre) AND !empty($contenu) AND !empty($miniature)) {
+			 
+			if(filesize($miniature['tmp_name']) <= $taille_maximum*1000000) {
+				
+				if(exif_imagetype($miniature['tmp_name']) == 2) {
+
+					$ins = $bdd->prepare('INSERT INTO articles (titre, categorie, contenu, datetime_post) VALUES (:titre,:categorie,:contenu, NOW())');
+					$res = $ins->execute([
+						':titre' => $titre,
+						':categorie' => $categorie,
+						':contenu' => $contenu
+					]);
+
+						if ($res) {
+
+							$last_id = $bdd->lastInsertId();
+
+							$chemin ='img/miniatures/'.$last_id.'.jpg';
+
+							$move = move_uploaded_file($miniature['tmp_name'], $chemin);
+
+								if($move) {
+									$message_article = 'Votre article a bien été crée !';
+								} else {
+									$message_article = "Une erreur est survenue lors de la création de la miniature";
+								}
+
+						} else {
+							$message_article ='Une erreur est survenue durant l\'ajoute de l\'article';
+						}
+
+			} else {
+					$message_article='Votre miniature doit etre au format JPG';
+			}
+
+
+			} else {
+					$message_article='Votre taille maximum ne peut pas dépasser '.$taille_maximum.' Mo';
+			}
+		}
+
+	}else{
+		$message_article='Veuillez completer tous les champs';
+	}
+}
+
 ?>
 
 <!doctype html>
@@ -69,17 +128,31 @@ $categories = $bdd->query('SELECT * FROM categories');
 
 <?php if($message_categorie) { echo '<p>' .$message_categorie. '<p>'; } ?>
 
-<h3>Nouvelle catégorie</h3>
+<br><br>
 
-<form method="POST">
-	<select name="categorie_artcicle">
+<h3>Rédiger un article</h3>
+
+
+<form method="POST" enctype="multipart/form-data">
+	<select name="categorie_article" required>
 		<?php while($o = $categories->fetch(PDO::FETCH_ASSOC)) { ?>
-		<option><?= $o['categorie'] ?></option>
-			<?php } ?>
+			<option value="<?= $o['categorie_url'] ?>"<?php if(isset($categorie) AND $categorie == $o['categorie_url']) { echo ' selected'; } ?>><?= $o['categorie'] ?></option>
+		<?php } ?>
 	</select>
+	<br>
+		<input type="text" name="titre" placeholder="Titre de l'article" <?php if(isset($titre)) { echo 'value="'.$titre.'"'; } ?> required>
+	<br>
+		<textarea name="contenu" placeholder="Contenu de l'article" style="width:80%;" required><?php if(isset($contenu)) { echo $contenu; } ?></textarea>
+	<br>
+		<input type="file" name="miniature" id="miniature" required><label for="miniature">Miniature de l'article</label>
+	<br>
+		<input type="submit" value="Publier l'article" name="article">
+
 </form>
 
-<br><br>
+
+<?php if($message_article) { echo '<p>'.$message_article.'</p>'; } ?>
+
 
 
 </section>
